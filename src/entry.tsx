@@ -1,8 +1,8 @@
-import Hello from './hello'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import SimpleTabs from './SimpleTabs';
 
 ReactDOM.render(
-    <Hello/>,
+  <SimpleTabs/>,
     document.body
 )

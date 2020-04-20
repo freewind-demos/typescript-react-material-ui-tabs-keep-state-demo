@@ -1,7 +1,5 @@
-TypeScript React "material-ui" Demo
+TypeScript React "material-ui" Tabs Demo
 ===================================
-
-如何使用TypeScript来写"material-ui"
 
 ```
 npm install
