@@ -3,18 +3,21 @@ import {makeStyles, Theme} from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import React, {useState} from 'react';
 
 interface TabPanelProps {
-  children?: React.ReactNode;
   index: number;
-  value: number;
+  tabIndexValue: number;
+  text: string;
 }
 
-function TabPanel({children, value, index}: TabPanelProps) {
+function TabPanel({text, tabIndexValue, index}: TabPanelProps) {
+  const [inputText, setInputText] = useState(text)
   return (
-    <Typography component="div" role="tabpanel" hidden={value !== index}>
-      {value === index && <Box p={3}>{children}</Box>}
+    <Typography component="div" role="tabpanel" hidden={tabIndexValue !== index}>
+      {tabIndexValue === index && <Box p={3}>
+        <input value={inputText} onChange={(event) => setInputText(event.target.value)}/>
+      </Box>}
     </Typography>
   );
 }
@@ -41,15 +44,9 @@ export default function SimpleTabs() {
         <Tab label="Item Two"/>
         <Tab label="Item Three"/>
       </Tabs>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
+      <TabPanel tabIndexValue={value} index={0} text={'aaa'}/>
+      <TabPanel tabIndexValue={value} index={1} text={'bbb'}/>
+      <TabPanel tabIndexValue={value} index={2} text={'ccc'}/>
     </div>
   );
 }
